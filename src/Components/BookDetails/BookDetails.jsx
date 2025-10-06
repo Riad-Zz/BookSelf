@@ -1,44 +1,52 @@
 import React from 'react';
 import bookImage from '../../assets/bannerImage.png'
 import { IoArrowBackSharp } from "react-icons/io5";
-import { useNavigate } from 'react-router';
+import { useLoaderData, useNavigate, useParams } from 'react-router';
+import BookTags from './BookTags';
 
 const BookDetails = () => {
     const navigate = useNavigate() ;
+    const allData = useLoaderData() ;
+    // console.log(allData) ;
+    const id = parseInt( useParams().id) ; //Param provides a object so , from id object -> .id then we parse it in integer 
+    const currentCard = allData.find(data => data.bookId === id) ;
+    const alltags = currentCard.tags ;
+    // console.log(currentCard) ;
+    // console.log(currentCard.review) ;
     return (
         <div>
             <div className='flex flex-col md:flex-row justify-between gap-12 items-center max-w-10/12 mx-auto mt-20 '>
-                <div className=''>
-                    <img src={bookImage} className='bg-[#F3F3F3] rounded-xl py-20 px-16 flex-1' />
-                </div>
                 <div className='flex-1'>
-                    <p className='playfair-display font-bold text-5xl'>The Catcher in the Rye</p>
-                    <p className='text-[#131313cc] text-lg my-4'>By : Awlad Hossain</p>
+                    <img src={currentCard.image} className='bg-[#F3F3F3] rounded-xl py-14 px-16' />
+                </div>
+                <div className='flex-2'>
+                    <p className='playfair-display font-bold text-5xl'>{currentCard.bookName}</p>
+                    <p className='text-[#131313cc] text-lg my-4'>By : {currentCard.author}</p>
                     <hr className=' border-t-[#13131326] mb-3' />
-                    <p className='text-[#131313cc] font-semibold '>Fiction</p>
+                    <p className='text-[#131313cc] font-semibold '>{currentCard.category}</p>
                     <hr className=' border-t-[#13131326] my-3' />
-                    <p className=''><span className='font-bold'>Review : </span>Sit amet consectetur. Interdum porta pulvinar non sit aliquam. Aenean pulvinar blandit vel non enim elementum penatibus pellentesque ac. Nec accumsan euismod nulla adipiscing lectus. Morbi elementum a auctor erat diam tellus. Fermentum faucibus nulla enim ornare.
-                        Id neque neque pretium enim platea urna non dictum. Faucibus dignissim ridiculus nibh tristique massa non.</p>
+                    <p className=''><span className='font-bold'>Review : </span>{currentCard.review}</p>
                     <div className='flex items-center gap-4 my-4'><span className='font-bold text-black'>Tag : </span>
-                        <p className='text-[#23BE0A] font-semibold bg-[#23be0a0d] py-1.5 px-4 rounded-xl'>#Young Adult</p>
-                        <p className='text-[#23BE0A] font-semibold bg-[#23be0a0d] py-1.5 px-4 rounded-xl'>#Identity</p>
+                        {
+                            alltags.map(tag => <BookTags key={currentCard.category} tag={tag}></BookTags>)
+                        }
                     </div>
                     <hr className=' border-t-[#13131326] my-3' />
                     <div className='font-bold flex gap-6'>
                         <div className='text-[#131313b3] font-normal'>Number of Pages : </div>
-                        <div>281</div>
+                        <div>{currentCard.totalPages}</div>
                     </div>
                     <div className='font-bold flex gap-6 my-3'>
                         <div className='text-[#131313b3] font-normal'>Publisher : </div>
-                        <div>281</div>
+                        <div>{currentCard.publisher}</div>
                     </div>
                     <div className='font-bold flex gap-6 my-3'>
                         <div className='text-[#131313b3] font-normal'>Year of Publishing : </div>
-                        <div>281</div>
+                        <div>{currentCard.yearOfPublishing}</div>
                     </div>
                     <div className='font-bold flex gap-6 my-3'>
                         <div className='text-[#131313b3] font-normal'>Rating : </div>
-                        <div>281</div>
+                        <div>{currentCard.rating}</div>
                     </div>
 
                     <div className='flex justify-center md:justify-start gap-4 mt-8'>

@@ -12,7 +12,7 @@ export const router = createBrowserRouter([
     errorElement : <p className='text-black'>Page Not Found</p>,
     children : [
       {index:true , path :'/' , Component : Home} ,
-      {path :"Details" , Component :BookDetails},
+      {path :'Details/:id' , loader : ()=>fetch('./booksData.json'),Component :BookDetails},
     ]
   }
 ])
