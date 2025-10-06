@@ -4,6 +4,7 @@ import Root from '../Pages/Root/Root'
 import Home from '../Pages/Home/Home'
 import BookDetails from '../Components/BookDetails/BookDetails'
 import ListedBook from '../Pages/LIstedBook/ListedBook'
+import Graph from '../Pages/Graph/Graph'
 
 
 export const router = createBrowserRouter([
@@ -15,6 +16,7 @@ export const router = createBrowserRouter([
       {index:true , path :'/' , Component : Home} ,
       {path :'Details/:id' , loader : ()=>fetch('./booksData.json'),Component :BookDetails},
       {path :'listed', loader : ()=>fetch('./booksData.json'),Component : ListedBook },
+      {path : 'graph' , loader : ()=>fetch('./booksData.json'),Component:Graph},
     ]
   }
 ])

@@ -8,7 +8,7 @@ const Navbar = () => {
             <div className='flex gap-5 md:gap-7 items-center justify-center flex-col md:flex-row'>
                 <NavLink to={'/'} className={({isActive})=>(isActive ? "active" : "not-active")}>Home</NavLink>
                 <NavLink to={'/listed'} className={`text-lg text-[#131313cc]`}>Listed Books</NavLink>
-                <NavLink to={'/else'} className={`text-lg text-[#131313cc]`}>Pages to Read</NavLink>
+                <NavLink to={'/graph'} className={`text-lg text-[#131313cc]`}>Pages to Read</NavLink>
             </div>
             <div className='gap-2 hidden md:flex'>
                 <button className='bg-[#23BE0A] text-white px-7 py-3 rounded-xl font-semibold'>Log In</button>
