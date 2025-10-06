@@ -1,8 +1,8 @@
 import React from 'react';
-import bookImage from '../../assets/bannerImage.png'
 import { IoArrowBackSharp } from "react-icons/io5";
 import { useLoaderData, useNavigate, useParams } from 'react-router';
 import BookTags from './BookTags';
+import { setListedBook } from '../../Utilities.jsx/LocalData';
 
 const BookDetails = () => {
     const navigate = useNavigate() ;
@@ -13,6 +13,10 @@ const BookDetails = () => {
     const alltags = currentCard.tags ;
     // console.log(currentCard) ;
     // console.log(currentCard.review) ;
+    //setListedBook
+    const handleMarkAsRead = (id) => {
+        setListedBook(id) ;
+    }
     return (
         <div>
             <div className='flex flex-col md:flex-row justify-between gap-12 items-center max-w-10/12 mx-auto mt-20 '>
@@ -50,8 +54,8 @@ const BookDetails = () => {
                     </div>
 
                     <div className='flex justify-center md:justify-start gap-4 mt-8'>
-                        <button className='font-bold border rounded-xl py-4 px-8'>Read</button>
-                        <button className='font-semibold  rounded-xl py-4 px-6 bg-[#50B1C9] text-white'>WishList</button>
+                        <button onClick={() => handleMarkAsRead(currentCard.bookId)} className='font-bold border rounded-xl py-4 px-8 cursor-pointer'>Mark as Read</button>
+                        <button className='font-semibold  rounded-xl py-4 px-6 bg-[#50B1C9] text-white cursor-pointer'>WishList</button>
                     </div>
                 </div>
             </div>

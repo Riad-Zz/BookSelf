@@ -7,7 +7,7 @@ const Navbar = () => {
             <div className='font-bold text-2xl text-black'>BookSelf</div>
             <div className='flex gap-5 md:gap-7 items-center justify-center flex-col md:flex-row'>
                 <NavLink to={'/'} className={({isActive})=>(isActive ? "active" : "not-active")}>Home</NavLink>
-                <NavLink to={'/name'} className={`text-lg text-[#131313cc]`}>Listed Books</NavLink>
+                <NavLink to={'/listed'} className={`text-lg text-[#131313cc]`}>Listed Books</NavLink>
                 <NavLink to={'/else'} className={`text-lg text-[#131313cc]`}>Pages to Read</NavLink>
             </div>
             <div className='gap-2 hidden md:flex'>
