@@ -2,7 +2,7 @@ import React from 'react';
 import { IoArrowBackSharp } from "react-icons/io5";
 import { useLoaderData, useNavigate, useParams } from 'react-router';
 import BookTags from './BookTags';
-import { setListedBook } from '../../Utilities.jsx/LocalData';
+import { setListedBook, setWishListed } from '../../Utilities.jsx/LocalData';
 
 const BookDetails = () => {
     const navigate = useNavigate() ;
@@ -16,6 +16,9 @@ const BookDetails = () => {
     //setListedBook
     const handleMarkAsRead = (id) => {
         setListedBook(id) ;
+    }
+    const handleWished = (id) =>{
+        setWishListed(id) ;
     }
     return (
         <div>
@@ -55,7 +58,7 @@ const BookDetails = () => {
 
                     <div className='flex justify-center md:justify-start gap-4 mt-8'>
                         <button onClick={() => handleMarkAsRead(currentCard.bookId)} className='font-bold border rounded-xl py-4 px-8 cursor-pointer'>Mark as Read</button>
-                        <button className='font-semibold  rounded-xl py-4 px-6 bg-[#50B1C9] text-white cursor-pointer'>WishList</button>
+                        <button onClick={() => handleWished(currentCard.bookId)} className='font-semibold  rounded-xl py-4 px-6 bg-[#50B1C9] text-white cursor-pointer'>WishList</button>
                     </div>
                 </div>
             </div>

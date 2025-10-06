@@ -16,8 +16,31 @@ const setListedBook = (id) =>{
         allListedBook.push(id) ;
         const allBooks = JSON.stringify(allListedBook) ;
         localStorage.setItem("listed",allBooks) ;
-        console.log(allBooks) ;
+        // console.log(allBooks) ;
     }
 }
 
-export {setListedBook,getListedBooks} ;
+const getWishListed = () =>{
+    const localWishList = localStorage.getItem("Wish") ;
+    if(localWishList){
+        const WishListed  = JSON.parse(localWishList) ;
+        return WishListed
+    }else{
+        return [] ;
+    }
+}
+
+const setWishListed = (id) =>{
+   const allWishListed =  getWishListed() ;
+//    console.log(id) ;
+   if(allWishListed.includes(id)){
+    alert("Available");
+   }else{
+     allWishListed.push(id) ;
+     const allWished = JSON.stringify(allWishListed) ;
+     localStorage.setItem("Wish",allWished) ;
+    console.log(allWished) ;
+   }
+}
+
+export {setListedBook,getListedBooks,getWishListed,setWishListed} ;

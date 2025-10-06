@@ -1,10 +1,10 @@
 import React from 'react';
-
 import { CiLocationOn } from "react-icons/ci";
 import { MdPeopleAlt } from "react-icons/md";
 import { FaBookOpen } from "react-icons/fa";
 import { Link } from 'react-router';
-const ListBookCard = ({item}) => {
+
+const WishedBookCard = ({item}) => {
     const id = item.bookId ;
     return (
         <div className='flex flex-col text-center md:text-left md:flex-row gap-6 items-center border border-[#13131326] rounded-xl p-4 mt-4'>
@@ -43,7 +43,8 @@ const ListBookCard = ({item}) => {
                 </div>
             </div>
         </div>
+        
     );
 };
 
-export default ListBookCard;
+export default WishedBookCard;

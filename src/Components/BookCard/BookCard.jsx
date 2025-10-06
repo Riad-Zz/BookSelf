@@ -7,7 +7,7 @@ import TagList from './TagList';
 const BookCard = ({ book }) => {
     // const {bookName,author,image,rating,category} = bookId ; 
     const alltag = book.tags ;
-    console.log(book);
+    // console.log(book);
     return (
         <Link to={`/Details/${book.bookId}`}>
             <div className='border border-[#13131326] p-6 rounded-2xl cursor-pointer'>
