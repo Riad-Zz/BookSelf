@@ -1,0 +1,13 @@
+/* text-lg text-[#131313cc] */
+.not-active{
+    font-size: large;
+    color:#131313cc ;
+}
+.active{
+    font-size: large ;
+    color: #23BE0A;
+    border:1px solid #23BE0A;
+    padding: 14px 16px;
+    border-radius: 8px;
+    font-weight:600
+}
