@@ -12,7 +12,7 @@ const BookCard = ({ book }) => {
         <Link to={`/Details/${book.bookId}`}>
             <div className='border border-[#13131326] p-6 rounded-2xl cursor-pointer'>
                 <img src={book.image} alt="" className='bg-[#F3F3F3] rounded-2xl px-14 xl:px-20 2xl:px-32 py-8 xl:object-cover xl:aspect-[4/3]' />
-                <div className='flex my-3 gap-5'>
+                <div className='flex my-3 gap-5 flex-wrap'>
                     {
                         alltag.map(tag => <TagList key={book.bookId} tag={tag}></TagList>)
                     }
