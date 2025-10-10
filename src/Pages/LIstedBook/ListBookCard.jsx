@@ -4,8 +4,10 @@ import { CiLocationOn } from "react-icons/ci";
 import { MdPeopleAlt } from "react-icons/md";
 import { FaBookOpen } from "react-icons/fa";
 import { Link } from 'react-router';
+import BooksTag from './BooksTag';
 const ListBookCard = ({item}) => {
     const id = item.bookId ;
+    const allTags = item.tags ; 
     return (
         <div className='flex flex-col text-center md:text-left md:flex-row gap-6 items-center border border-[#13131326] rounded-xl p-4 mt-4'>
 
@@ -16,8 +18,9 @@ const ListBookCard = ({item}) => {
                 <div className='flex items-center gap-3 flex-col md:flex-row justify-center md:justify-start'>
                     <div className='font-bold'>Tag :</div>
                     <div className='flex gap-4 items-center'>
-                        <p className='text-[#23BE0A] font-semibold bg-[#23be0a0d] py-1.5 px-4 rounded-xl'>#Something</p>
-                        <p className='text-[#23BE0A] font-semibold bg-[#23be0a0d] py-1.5 px-4 rounded-xl'>#Something</p>
+                        {
+                            allTags.map(tag => <BooksTag key={item.bookId} tag={tag}></BooksTag>)
+                        }
                     </div>
                     <div className='flex items-center gap-3 text-[#131313cc] flex-wrap'><CiLocationOn /> Year of Publishing: {item.yearOfPublishing}</div>
 
